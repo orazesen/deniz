@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/pages/coffee_detail_page.dart';
-import 'package:saray_pub/pages/map_page.dart';
-import 'package:saray_pub/pages/video_player_page.dart';
-import 'package:saray_pub/style/my_theme.dart';
+import 'package:deniz/pages/coffee_detail_page.dart';
+import 'package:deniz/pages/map_page.dart';
+import 'package:deniz/style/my_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/rendering.dart';
@@ -21,7 +20,6 @@ import './utils/size_config.dart';
 import 'constants/constants.dart';
 import 'localization/messages.dart';
 import './pages/order_detail_page.dart';
-import 'style/my_colors.dart';
 
 class App extends StatefulWidget {
   @override

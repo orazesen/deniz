@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:saray_pub/models/banner.dart';
+import 'package:deniz/models/banner.dart';
 
 class BannersController extends GetxController {
   RxList<Banner> _banners = List<Banner>().obs;

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:saray_pub/controllers/menus_controller.dart';
+import 'package:deniz/controllers/menus_controller.dart';
 import '../models/menu_item.dart';
 import '../services/helper.dart';
 
@@ -42,8 +42,9 @@ class FavoritesController extends GetxController {
     if (items.any((element) => element.id == id)) {
       final MenuItem item = items.firstWhere((element) => element.id == id);
       items.remove(item);
-      if (_menusController.differentMenus != null &&_menusController.differentMenus
-          .any((element) => element.id == item.categoryId)) {
+      if (_menusController.differentMenus != null &&
+          _menusController.differentMenus
+              .any((element) => element.id == item.categoryId)) {
         DifferentMenu fItem = _menusController.differentMenus.firstWhere(
           (element) => element.id == item.categoryId,
         );

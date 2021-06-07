@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/pages/main_page.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/constants/constants.dart';
+import 'package:deniz/pages/main_page.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/utils/size_config.dart';
 import '../style/text_styles.dart';
 import '../controllers/main_page_controller.dart';
 
@@ -82,23 +82,22 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                         },
                       ),
                     )
-                  : 
-                  Container(),
-                  // Padding(
-                  //     padding: const EdgeInsets.only(
-                  //       right: 8.0,
-                  //     ),
-                  //     child: IconButton(
-                  //       icon: SvgPicture.asset(
-                  //         Constants.location,
-                  //         height: SizeConfig.heightMultiplier * 3,
-                  //         color: MyColors.darkGreen,
-                  //       ),
-                  //       onPressed: () {
-                  //         // showDetail(context);
-                  //       },
-                  //     ),
-                  //   ),
+                  : Container(),
+          // Padding(
+          //     padding: const EdgeInsets.only(
+          //       right: 8.0,
+          //     ),
+          //     child: IconButton(
+          //       icon: SvgPicture.asset(
+          //         Constants.location,
+          //         height: SizeConfig.heightMultiplier * 3,
+          //         color: MyColors.darkGreen,
+          //       ),
+          //       onPressed: () {
+          //         // showDetail(context);
+          //       },
+          //     ),
+          //   ),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:saray_pub/controllers/main_page_controller.dart';
+import 'package:deniz/controllers/main_page_controller.dart';
 import '../models/order_product.dart';
 import '../models/menu_item.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/utils/size_config.dart';
 
 class TransitionAppBar extends StatelessWidget {
   final Widget avatar;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:io';
@@ -8,7 +7,7 @@ import 'dart:io';
 class VideoPlayerPage extends StatefulWidget {
   final String url;
   VideoPlayerPage({
-    this.url = "http://saraypub.com/storage/79/bee.mp4",
+    this.url,
   });
   @override
   _VideoPlayerPageState createState() => _VideoPlayerPageState();

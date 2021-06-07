@@ -2,15 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart' as GetX;
 import 'package:mime/mime.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:saray_pub/controllers/categories_controller.dart';
-import 'package:saray_pub/controllers/orders_controller.dart';
-import 'package:saray_pub/models/banner.dart';
-import 'package:saray_pub/models/menu_item.dart';
+import 'package:deniz/controllers/categories_controller.dart';
+import 'package:deniz/controllers/orders_controller.dart';
+import 'package:deniz/models/banner.dart';
+import 'package:deniz/models/menu_item.dart';
 import '../controllers/banners_controller.dart';
 import 'dart:io';
 
 class Api {
-  static String url = 'http://saraypub.com:8085/';
+  static String url = 'http://sanlysenet.com:8085/';
   static CategoriesController _categoriesController = GetX.Get.find();
   static BannersController _bannersController = GetX.Get.find();
   static OrdersController _ordersController = GetX.Get.find();
@@ -133,7 +133,7 @@ class Api {
   static Future<dynamic> postOrders(Map<String, dynamic> map) async {
     String api = 'api/v1/orders';
     try {
-      Response response = await Dio().post(
+      await Dio().post(
         url + api,
         queryParameters: map,
       );

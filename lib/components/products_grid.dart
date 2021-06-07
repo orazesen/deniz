@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:saray_pub/components/coffee_grid_item.dart';
-import 'package:saray_pub/models/category_item.dart';
-import 'package:saray_pub/models/coffee.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/components/coffee_grid_item.dart';
+import 'package:deniz/models/category_item.dart';
+import 'package:deniz/models/coffee.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 import './grid_item.dart';
 import 'package:get/get.dart';

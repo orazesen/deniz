@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:saray_pub/pages/menu.dart';
 import '../models/menu_item.dart';
 import '../services/api.dart';
 import './favorites_controller.dart';

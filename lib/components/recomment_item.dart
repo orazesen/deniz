@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/models/menu_item.dart';
-import 'package:saray_pub/controllers/orders_controller.dart';
-import 'package:saray_pub/models/order_product.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/models/menu_item.dart';
+import 'package:deniz/controllers/orders_controller.dart';
+import 'package:deniz/models/order_product.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RecommentItem extends StatefulWidget {

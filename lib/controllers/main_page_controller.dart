@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:saray_pub/pages/main_page.dart';
+import 'package:deniz/pages/main_page.dart';
 
 class MainPageController extends GetxController {
   Rx<Widget> _mainPage = Rx<Widget>();

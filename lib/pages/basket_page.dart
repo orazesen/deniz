@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/components/custom_error.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
+import 'package:deniz/components/custom_error.dart';
+import 'package:deniz/constants/constants.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../components/order_item.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/utils/size_config.dart';
 import '../controllers/orders_controller.dart';
 import '../pages/order_detail_page.dart';
 

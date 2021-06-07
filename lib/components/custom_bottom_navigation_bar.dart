@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
+import 'package:deniz/utils/size_config.dart';
 
 import '../models/custom_navigation_item.dart';
 

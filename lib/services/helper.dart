@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/models/menu_item.dart';
+import 'package:deniz/models/menu_item.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../controllers/favorites_controller.dart';

@@ -2,11 +2,11 @@ import 'dart:typed_data';
 
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/models/address.dart';
-import 'package:saray_pub/models/coffee.dart';
-import 'package:saray_pub/services/api.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/constants/constants.dart';
+import 'package:deniz/models/address.dart';
+import 'package:deniz/models/coffee.dart';
+import 'package:deniz/services/api.dart';
+import 'package:deniz/utils/size_config.dart';
 
 class CoffeeMenusController extends GetxController {
   RxList<Coffee> _coffees;

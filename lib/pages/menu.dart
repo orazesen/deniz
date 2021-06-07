@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/components/custom_error.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/controllers/categories_controller.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:deniz/components/custom_error.dart';
+import 'package:deniz/controllers/categories_controller.dart';
+import 'package:deniz/style/text_styles.dart';
 
 import '../components/menu_list.dart';
 import '../style/my_colors.dart';

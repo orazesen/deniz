@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/utils/size_config.dart';
 
 class MapPage extends StatelessWidget {
   static String routeName = '/mapPage';

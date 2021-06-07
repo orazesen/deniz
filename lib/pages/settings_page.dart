@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/constants/constants.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatelessWidget {

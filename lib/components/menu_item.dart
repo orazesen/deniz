@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/constants/constants.dart';
-import 'package:saray_pub/controllers/menus_controller.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/constants/constants.dart';
+import 'package:deniz/controllers/menus_controller.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../pages/product_detail.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/components/my_scroll_behavior.dart';
-import 'package:saray_pub/components/recomment_item.dart';
-import 'package:saray_pub/services/api.dart';
-import 'package:saray_pub/style/my_colors.dart';
-import 'package:saray_pub/style/text_styles.dart';
-import 'package:saray_pub/utils/size_config.dart';
+import 'package:deniz/components/my_scroll_behavior.dart';
+import 'package:deniz/components/recomment_item.dart';
+import 'package:deniz/services/api.dart';
+import 'package:deniz/style/my_colors.dart';
+import 'package:deniz/style/text_styles.dart';
+import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 import '../models/order_product.dart';
 import '../models/menu_item.dart';

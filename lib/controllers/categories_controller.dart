@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:saray_pub/models/category_item.dart';
+import 'package:deniz/models/category_item.dart';
 
 class CategoriesController extends GetxController {
   RxList<CategoryItem> _categories;

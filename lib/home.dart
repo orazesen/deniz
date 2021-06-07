@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:saray_pub/app.dart';
-import 'package:saray_pub/controllers/coffee_menus_controller.dart';
-import 'package:saray_pub/style/my_colors.dart';
+import 'package:deniz/controllers/coffee_menus_controller.dart';
+import 'package:deniz/style/my_colors.dart';
 import './pages/main_page.dart';
 import './pages/favorites_page.dart';
-import './pages/coffee_page.dart';
 import 'components/my_scroll_behavior.dart';
 import 'controllers/banners_controller.dart';
 import 'controllers/categories_controller.dart';
 import 'controllers/menus_controller.dart';
 import 'controllers/orders_controller.dart';
 import 'pages/basket_page.dart';
-import './components/custom_bottom_navigation_bar.dart';
-import './models/custom_navigation_item.dart';
 import './controllers/main_page_controller.dart';
-import 'constants/constants.dart';
 import './controllers/favorites_controller.dart';
 import 'pages/settings_page.dart';
 

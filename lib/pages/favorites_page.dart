@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:saray_pub/components/favorite_item.dart';
-import 'package:saray_pub/controllers/orders_controller.dart';
-import 'package:saray_pub/models/menu_item.dart';
+import 'package:deniz/components/favorite_item.dart';
+import 'package:deniz/controllers/orders_controller.dart';
+import 'package:deniz/models/menu_item.dart';
 import '../style/text_styles.dart';
 import '../utils/size_config.dart';
-import 'package:shimmer/shimmer.dart';
 import '../components/custom_error.dart';
 import 'package:get/get.dart';
-import '../constants/constants.dart';
 import '../controllers/favorites_controller.dart';
 
 class FavoritesPage extends StatelessWidget {
