@@ -28,7 +28,7 @@ class Api {
       ]);
 
       final data = response[1].data as List;
-      saveAsync(data);
+      saveAsync(data as List<Map<String, String>>);
       print('finished');
 
       _categoriesController.setCategories(response[0].data as List);
@@ -40,7 +40,7 @@ class Api {
     }
   }
 
-  static Future<List<Banner>> saveAsync(var data) async {
+  static Future<List<Banner>> saveAsync(List<Map<String, String>> data) async {
     var dir = await getApplicationDocumentsDirectory();
     print("path ${dir.path}");
     Dio dio = Dio();
@@ -50,13 +50,13 @@ class Api {
       // String locations = prefs.getString(Constants.fileLocations);
       print('start saving');
       await Future.forEach(data, (element) async {
-        final String url = element['file_url'];
+        final String url = element['file_url']!;
         final mimeType = lookupMimeType(url);
         // print(mimeType);
         final String id = url.split('.')[1].split('/')[2];
 
         // print('id: $id');
-        final String fileName = id + '.' + mimeType.split('/')[1];
+        final String fileName = id + '.' + mimeType!.split('/')[1];
         // print(fileName);
 
         if (FileSystemEntity.typeSync(dir.path + '/' + fileName) !=
@@ -81,7 +81,7 @@ class Api {
         // prefs.setString(Constants.fileLocations, locations);
 
         final Banner banner = Banner(
-          id: element['id'],
+          id: int.parse(element['id']!),
           fileUrl: dir.path + '/' + fileName,
           fileType: mimeType.split('/')[0],
         );
@@ -163,7 +163,7 @@ class Api {
     Dio dio = Dio();
     try {
       var response = await dio.get(url + rapi);
-      List<MenuItem> items = List<MenuItem>();
+      List<MenuItem> items = [];
       final data = response.data as List;
       print(data);
       data.forEach(

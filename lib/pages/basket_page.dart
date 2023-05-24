@@ -23,16 +23,16 @@ class BasketPage extends StatelessWidget {
 
   //   /// what I'm supposed to do here
   // }
-  SharedPreferences pref;
+  late SharedPreferences pref;
   String phoneString = '';
   String adressString = '';
   String addString = '';
 
   getPrefs() async {
     pref = await SharedPreferences.getInstance();
-    phoneString = pref.getString(Constants.phoneNumber);
-    adressString = pref.getString(Constants.address);
-    addString = pref.getString(Constants.additional);
+    phoneString = pref.getString(Constants.phoneNumber)!;
+    adressString = pref.getString(Constants.address)!;
+    addString = pref.getString(Constants.additional)!;
   }
 
   @override
@@ -68,7 +68,7 @@ class BasketPage extends StatelessWidget {
                         iconName: Icons.remove_shopping_cart_sharp,
                         message: 'empty_basket'.tr,
                       );
-                    } else if (snapshot.data.length > 0) {
+                    } else if (snapshot.data!.isNotEmpty) {
                       return buildList();
                     } else {
                       return CustomError(
@@ -113,7 +113,7 @@ class BasketPage extends StatelessWidget {
           );
   }
 
-  ListView buildListView({OrdersController controller}) {
+  ListView buildListView({OrdersController? controller}) {
     final int count = controller == null ? 8 : controller.items.length;
     final bool isShimmering = controller == null;
     return ListView.separated(
@@ -174,7 +174,7 @@ class BasketPage extends StatelessWidget {
   }
 
   buildRow(String name, String count, String price,
-      {bool isBold = false, TextStyle style = null}) {
+      {bool isBold = false, TextStyle? style}) {
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: SizeConfig.widthMultiplier,

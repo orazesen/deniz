@@ -8,11 +8,11 @@ import 'package:deniz/utils/size_config.dart';
 import '../style/text_styles.dart';
 import '../controllers/main_page_controller.dart';
 
-class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize = AppBar().preferredSize;
-  final int index;
-  final Function showDetail;
+  final int? index;
+  final void Function(BuildContext)? showDetail;
 
   CustomAppBar({
     this.index,
@@ -58,7 +58,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                         color: MyColors.darkGreen,
                       ),
                       onPressed: () {
-                        showDetail(context);
+                        showDetail!(context);
                       },
                     ),
                   )

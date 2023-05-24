@@ -9,8 +9,8 @@ import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RecommentItem extends StatefulWidget {
-  final MenuItem item;
-  final int index;
+  final MenuItem? item;
+  final int? index;
   // final Animation animation;
   // final Function callback;
   RecommentItem({
@@ -21,7 +21,7 @@ class RecommentItem extends StatefulWidget {
     // this.callback,
   });
 
-  final OrdersController controller;
+  final OrdersController? controller;
 
   @override
   _RecommentItemState createState() => _RecommentItemState();
@@ -33,11 +33,11 @@ class _RecommentItemState extends State<RecommentItem> {
   @override
   Widget build(BuildContext context) {
     final String locale =
-        Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
+        Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
     return widget.item == null
         ? Shimmer.fromColors(
-            baseColor: Colors.grey[300],
-            highlightColor: Colors.grey[100],
+            baseColor: Colors.grey[300]!,
+            highlightColor: Colors.grey[100]!,
             enabled: true,
             child: Container(
               constraints: BoxConstraints(
@@ -84,7 +84,7 @@ class _RecommentItemState extends State<RecommentItem> {
                           ),
                           height: MediaQuery.of(context).size.height / 8,
                           fit: BoxFit.fitWidth,
-                          image: NetworkImage(widget.item.imageUrl),
+                          image: NetworkImage(widget.item!.imageUrl),
                         ),
                       ],
                     ),
@@ -104,7 +104,7 @@ class _RecommentItemState extends State<RecommentItem> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.item.name[locale] ?? widget.item.name['tk'],
+                          widget.item!.name[locale] ?? widget.item!.name['tk'],
                           style: TextStyles.body
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
@@ -114,7 +114,7 @@ class _RecommentItemState extends State<RecommentItem> {
                           children: [
                             Flexible(
                               child: Text(
-                                '${widget.item.price.toInt()} TMT',
+                                '${widget.item!.price.toInt()} TMT',
                                 style: TextStyles.body
                                     .copyWith(fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
@@ -125,12 +125,12 @@ class _RecommentItemState extends State<RecommentItem> {
                                 if (added) {
                                   return;
                                 }
-                                widget.controller.addOrder(
+                                widget.controller!.addOrder(
                                   OrderProduct(
-                                    id: widget.item.id,
+                                    id: widget.item!.id,
                                     count: 1,
                                   ),
-                                  widget.item,
+                                  widget.item!,
                                 );
                                 setState(() {
                                   added = true;

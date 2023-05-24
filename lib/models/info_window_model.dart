@@ -6,8 +6,8 @@ class InfoWindowModel extends ChangeNotifier {
   bool _showInfoWindow = false;
   bool _tempHidden = false;
   dynamic _location;
-  double _leftMargin;
-  double _topMargin;
+  late double _leftMargin;
+  late double _topMargin;
 
   void rebuildInfowindow() {
     notifyListeners();

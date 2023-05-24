@@ -7,12 +7,8 @@ class MyTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: MyColors.white,
     brightness: Brightness.light,
-    accentColor: MyColors.darkGreen,
     primaryColor: MyColors.white,
     backgroundColor: MyColors.background,
-    accentIconTheme: IconThemeData(
-      color: MyColors.darkGreen,
-    ),
     iconTheme: IconThemeData(
       color: MyColors.darkGreen,
     ),
@@ -77,7 +73,7 @@ class MyTheme {
     ),
   );
 
-  static ShapeBorder shapeBorder = RoundedRectangleBorder(
+  static OutlinedBorder shapeBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(
       SizeConfig.borderRadius,
     ),
@@ -108,7 +104,7 @@ class MyTheme {
     filled: true,
   );
 
-  static ShapeBorder lightInputBorder = OutlineInputBorder(
+  static InputBorder lightInputBorder = OutlineInputBorder(
     borderSide: BorderSide(
       color: MyColors.darkGreen,
       width: 0.5,
@@ -118,7 +114,7 @@ class MyTheme {
     ),
   );
 
-  static ShapeBorder darkInputBorder = OutlineInputBorder(
+  static InputBorder darkInputBorder = OutlineInputBorder(
     borderSide: BorderSide(
       color: Colors.transparent,
       width: 0.5,

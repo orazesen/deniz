@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:deniz/models/category_item.dart';
 
 class CategoriesController extends GetxController {
-  RxList<CategoryItem> _categories;
+  late RxList<CategoryItem> _categories;
 
   List<CategoryItem> get categories {
     return _categories;
@@ -17,7 +17,7 @@ class CategoriesController extends GetxController {
   }
 
   Future<void> setCategories(dynamic data) async {
-    _categories = List<CategoryItem>().obs;
+    _categories = RxList();
     final RxList<CategoryItem> temp = RxList<CategoryItem>();
 
     try {

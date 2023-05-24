@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:deniz/models/banner.dart';
 
 class BannersController extends GetxController {
-  RxList<Banner> _banners = List<Banner>().obs;
+  RxList<Banner> _banners = RxList();
 
   List<Banner> get banners {
     return [..._banners];
@@ -13,7 +13,7 @@ class BannersController extends GetxController {
   }
 
   Future<void> setBanners(List<Banner> temp) async {
-    _banners = List<Banner>().obs;
+    _banners = RxList();
     // final RxList<Banner> temp = RxList<Banner>();
     // try {
     //   data.forEach((element) {
@@ -26,7 +26,7 @@ class BannersController extends GetxController {
     // } catch (e) {
     //   throw (e);
     // }
-    _banners = temp;
+    _banners = RxList(temp);
     update();
   }
 }

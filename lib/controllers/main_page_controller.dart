@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:deniz/pages/main_page.dart';
 
 class MainPageController extends GetxController {
-  Rx<Widget> _mainPage = Rx<Widget>();
+  late Rx<Widget> _mainPage;
   RxBool hasLeading = false.obs;
 
-  Function gotoPage;
+  late Function gotoPage;
 
   MainPageController(Function gotoPage) {
     mainPage = MainPage();
     this.gotoPage = gotoPage;
   }
 
-  get mainPage {
-    return _mainPage;
+  Widget get mainPage {
+    return _mainPage.value;
   }
 
   set mainPage(Widget page) {

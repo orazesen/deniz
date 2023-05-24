@@ -130,7 +130,7 @@ class Helper {
       );
     }
     return List.generate(maps.length, (i) {
-      return MenuItem().fromMap(maps[i]);
+      return MenuItem.fromMap(maps[i]);
     });
   }
 

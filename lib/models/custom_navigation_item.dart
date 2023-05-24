@@ -4,7 +4,7 @@ class CustomBottomNavigationItem {
   String name;
   SvgPicture icon;
   CustomBottomNavigationItem({
-    this.name,
-    this.icon,
+    required this.name,
+    required this.icon,
   });
 }

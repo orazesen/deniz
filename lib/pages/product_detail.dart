@@ -27,9 +27,9 @@ class _ProductDetailState extends State<ProductDetail>
 
   final CategoriesController _categoriesController = Get.find();
   final OrdersController _ordersController = Get.find();
-  List<MenuItem> snapshot = List<MenuItem>();
-  MenuItem item;
-  String locale;
+  List<MenuItem> snapshot = [];
+  late MenuItem item;
+  late String locale;
   bool loadingRecommends = true;
   bool isFirstCall = true;
   // @override
@@ -58,8 +58,9 @@ class _ProductDetailState extends State<ProductDetail>
   Widget build(BuildContext context) {
     if (isFirstCall) {
       isFirstCall = false;
-      locale = Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
-      item = ModalRoute.of(context).settings.arguments as MenuItem;
+      locale =
+          Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
+      item = ModalRoute.of(context)!.settings.arguments as MenuItem;
       getRecommends();
     }
 
@@ -237,13 +238,13 @@ class _ProductDetailState extends State<ProductDetail>
                               ? Column(
                                   children: [
                                     Shimmer.fromColors(
-                                      baseColor: Colors.grey[300],
-                                      highlightColor: Colors.grey[100],
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.grey[100]!,
                                       enabled: true,
                                       child: Container(
                                         constraints: BoxConstraints(
                                           maxHeight:
-                                              TextStyles.body.fontSize * 1.6,
+                                              TextStyles.body.fontSize! * 1.6,
                                         ),
                                         decoration: BoxDecoration(
                                           color: MyColors.background,
@@ -297,7 +298,7 @@ class _ProductDetailState extends State<ProductDetail>
                     bottom: SizeConfig.widthMultiplier * 6,
                     right: SizeConfig.widthMultiplier * 4,
                   ),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () async {
                       _ordersController.addOrder(
                         OrderProduct(

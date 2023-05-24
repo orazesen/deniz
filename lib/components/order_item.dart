@@ -9,8 +9,8 @@ import 'package:deniz/utils/size_config.dart';
 import 'package:shimmer/shimmer.dart';
 
 class OrderItem extends StatelessWidget {
-  final Map<String, dynamic> item;
-  final int index;
+  final Map<String, dynamic>? item;
+  final int? index;
   // final Animation animation;
   // final Function callback;
   OrderItem({
@@ -20,15 +20,15 @@ class OrderItem extends StatelessWidget {
     // this.animation,
     // this.callback,
   });
-  final OrdersController controller;
+  final OrdersController? controller;
   @override
   Widget build(BuildContext context) {
     final String locale =
-        Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
+        Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
     return item == null
         ? Shimmer.fromColors(
-            baseColor: Colors.grey[300],
-            highlightColor: Colors.grey[100],
+            baseColor: Colors.grey[300]!,
+            highlightColor: Colors.grey[100]!,
             enabled: true,
             child: Container(
               constraints: BoxConstraints(
@@ -43,20 +43,21 @@ class OrderItem extends StatelessWidget {
             ),
           )
         : Slidable(
-            actionPane: SlidableBehindActionPane(),
-            actionExtentRatio: 0.25,
-            secondaryActions: [
-              IconSlideAction(
-                caption: 'delete'.tr,
-                // color: MyColors.darkGreen,
-                icon: Icons.delete,
-                closeOnTap: false,
-                onTap: () {
-                  controller.remove(index);
-                },
-              ),
-            ],
-            key: Key(item['menu'].id.toString()),
+            endActionPane: ActionPane(
+              motion: const ScrollMotion(),
+              children: [
+                SlidableAction(
+                  label: 'delete'.tr,
+                  // color: MyColors.darkGreen,
+                  icon: Icons.delete,
+                  autoClose: false,
+                  onPressed: (context) {
+                    controller!.remove(index!);
+                  },
+                ),
+              ],
+            ),
+            key: Key(item!['menu'].id.toString()),
             child: Container(
               constraints: BoxConstraints(
                 maxHeight: SizeConfig.heightMultiplier * 15,
@@ -76,7 +77,7 @@ class OrderItem extends StatelessWidget {
                     ),
                     height: double.infinity,
                     fit: BoxFit.cover,
-                    image: NetworkImage(item['menu'].imageUrl),
+                    image: NetworkImage(item!['menu'].imageUrl),
                     width: SizeConfig.widthMultiplier * 30,
                   ),
                   SizedBox(width: SizeConfig.widthMultiplier * 2),
@@ -91,7 +92,8 @@ class OrderItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          item['menu'].name[locale] ?? item['menu'].name['tk'],
+                          item!['menu'].name[locale] ??
+                              item!['menu'].name['tk'],
                           style: TextStyles.body
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
@@ -122,7 +124,7 @@ class OrderItem extends StatelessWidget {
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        controller.decrease(index);
+                                        controller!.decrease(index!);
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -133,13 +135,13 @@ class OrderItem extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      '${controller.items[index]['count']}',
+                                      '${controller!.items[index!]['count']}',
                                       style: TextStyles.body.copyWith(
                                           fontWeight: FontWeight.w400),
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        controller.increase(index);
+                                        controller!.increase(index!);
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -153,7 +155,7 @@ class OrderItem extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '${item['menu'].price.toInt() * item['count']} TMT',
+                                '${item!['menu'].price.toInt() * item!['count']} TMT',
                                 style: TextStyles.body
                                     .copyWith(fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,

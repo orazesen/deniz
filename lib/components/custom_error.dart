@@ -5,14 +5,14 @@ import '../utils/size_config.dart';
 
 class CustomError extends StatelessWidget {
   final String message;
-  final Function callback;
+  final void Function()? callback;
   final String actionMessage;
   final IconData iconName;
   CustomError(
-      {@required this.message,
-      @required this.callback,
-      @required this.actionMessage,
-      @required this.iconName});
+      {required this.message,
+      required this.callback,
+      required this.actionMessage,
+      required this.iconName});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -49,8 +49,10 @@ class CustomError extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: SizeConfig.widthMultiplier * 1,
                   ),
-                  child: RaisedButton(
-                    elevation: 0.0,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      elevation: MaterialStateProperty.all(0),
+                    ),
                     onPressed: callback,
                     child: Center(
                       child: Text(actionMessage, style: TextStyles.button),

@@ -7,10 +7,10 @@ import '../services/helper.dart';
 import './menus_controller.dart';
 
 class OrdersController extends GetxController {
-  RxList<OrderProduct> orders;
-  RxList<Map<String, dynamic>> items = List<Map<String, dynamic>>().obs;
+  late RxList<OrderProduct> orders;
+  RxList<Map<String, dynamic>> items = RxList();
   int deliveryCost = 0;
-  Helper _helper;
+  late Helper _helper;
 
   OrdersController() {
     _helper = Helper();
@@ -46,7 +46,7 @@ class OrdersController extends GetxController {
       }
     } else {
       if (orders == null) {
-        orders = List<OrderProduct>().obs;
+        orders = RxList();
       }
       orders.add(order);
       final mi = MenuItem(
@@ -74,8 +74,8 @@ class OrdersController extends GetxController {
   }
 
   Future<List<Map<String, dynamic>>> getItem() async {
-    items = List<Map<String, dynamic>>().obs;
-    orders = List<OrderProduct>().obs;
+    items = RxList();
+    orders = RxList();
     List<Map<String, dynamic>> temps = await _helper.orders();
 
     temps.forEach(
@@ -100,7 +100,8 @@ class OrdersController extends GetxController {
   get total {
     int sum = 0;
     items.forEach((element) {
-      sum += element['menu'].price * element['count'];
+      final item = element['menu'] as MenuItem;
+      sum += item.price * element['count'] as int;
     });
     if (sum != 0) {
       sum += deliveryCost;

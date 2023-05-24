@@ -31,13 +31,13 @@ class _AppState extends State<App> {
     final prefs = await SharedPreferences.getInstance();
     Locale _locale;
     if (prefs.containsKey(Constants.language)) {
-      _locale = Locale(prefs.getString(Constants.language));
+      _locale = Locale(prefs.getString(Constants.language) ?? 'tr');
     } else {
       _locale = Locale('tr');
     }
 
     Get.updateLocale(_locale);
-    await prefs.setString(Constants.language, Get.locale.languageCode);
+    await prefs.setString(Constants.language, Get.locale?.languageCode ?? 'tr');
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     SystemChrome.setSystemUIOverlayStyle(

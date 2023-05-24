@@ -1,12 +1,12 @@
 class OrderProduct {
   int id;
   int count;
-  OrderProduct({this.id, this.count});
+  OrderProduct({required this.id, required this.count});
 
-   Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'quantity' : count,
+      'quantity': count,
     };
   }
 }

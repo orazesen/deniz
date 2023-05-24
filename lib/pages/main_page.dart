@@ -37,11 +37,11 @@ class _MainPageState extends State<MainPage> {
   bool editingPhone = false;
   bool editingAddress = false;
 
-  SharedPreferences pref;
-  String phoneString;
-  String nameString;
-  String addressString;
-  String language;
+  late SharedPreferences pref;
+  String phoneString = '';
+  String nameString = '';
+  String addressString = '';
+  String language = '';
 
   String currentLanguage = 'Türkmençe';
   int currentIndex = 0;
@@ -170,9 +170,9 @@ class _MainPageState extends State<MainPage> {
     // });
     return RefreshIndicator(
       onRefresh: () async {
-        _categoriesController.categories = List<CategoryItem>().obs;
-        _bannersController.banners = List<Ban.Banner>().obs;
-        _menusController.differentMenus = List<DifferentMenu>().obs;
+        _categoriesController.categories = RxList();
+        _bannersController.banners = RxList();
+        _menusController.differentMenus = RxList();
         setState(() {});
         // await Api.getInitials();
       },
@@ -184,7 +184,7 @@ class _MainPageState extends State<MainPage> {
               itemCount: shimmering || _bannersController.banners.length <= 0
                   ? 1
                   : _bannersController.banners.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (context, index, i) {
                 return Container(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
@@ -197,8 +197,8 @@ class _MainPageState extends State<MainPage> {
                       child: shimmering ||
                               _bannersController.banners.length <= 0
                           ? Shimmer.fromColors(
-                              baseColor: Colors.grey[300],
-                              highlightColor: Colors.grey[100],
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
                               enabled: true,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -595,7 +595,7 @@ class _MainPageState extends State<MainPage> {
                                 onChanged: (value) {
                                   setState(
                                     () {
-                                      currentLanguage = value;
+                                      currentLanguage = value ?? 'tr';
                                       if (currentLanguage == 'Türkmençe') {
                                         language = 'tr';
                                       } else if (currentLanguage == 'English') {

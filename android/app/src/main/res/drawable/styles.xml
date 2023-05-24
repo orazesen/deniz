@@ -1,0 +1,4 @@
+<!-- You can name this style whatever you'd like -->
+<style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+    <item name="android:windowBackground">@drawable/launch_background.xml</item>
+</style>

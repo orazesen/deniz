@@ -12,8 +12,8 @@ class CustomSlider extends StatefulWidget {
   final EdgeInsetsGeometry padding;
 
   CustomSlider({
-    @required this.images,
-    @required this.height,
+    required this.images,
+    required this.height,
     this.topLeft = Radius.zero,
     this.topRight = Radius.zero,
     this.bottomLeft = Radius.zero,
@@ -33,7 +33,7 @@ class _CustomSliderState extends State<CustomSlider> {
       alignment: Alignment.bottomCenter,
       children: [
         CarouselSlider.builder(
-          itemBuilder: (context, index) => Container(
+          itemBuilder: (context, index, i) => Container(
             child: Padding(
               padding: widget.padding,
               child: ClipRRect(

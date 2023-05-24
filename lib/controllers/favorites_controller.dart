@@ -4,10 +4,10 @@ import '../models/menu_item.dart';
 import '../services/helper.dart';
 
 class FavoritesController extends GetxController {
-  RxList<MenuItem> items;
-  MenusController _menusController;
+  late RxList<MenuItem> items;
+  late MenusController _menusController;
 
-  Helper helper;
+  late Helper helper;
   FavoritesController() {
     helper = Helper();
   }
@@ -79,8 +79,19 @@ class FavoritesController extends GetxController {
   }
 
   bool isFavorite(int id) {
-    final i = items.firstWhere((element) => element.id == id,
-        orElse: () => MenuItem());
+    final i = items.firstWhere(
+      (element) => element.id == id,
+      orElse: () => MenuItem(
+        id: -1,
+        imageUrl: '',
+        ingredients: {},
+        name: {},
+        price: 0,
+        thumbUrl: '',
+        categoryId: -1,
+        isFavorite: false,
+      ),
+    );
     return i.isFavorite ?? false;
   }
 }

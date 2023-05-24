@@ -15,10 +15,10 @@ class _CustomInfoWindowState extends State<CustomInfoWindow> {
   final double _infoWindowWidth = 200;
   final double _marketOffset = 170;
 
-  GoogleMapController _mapController;
+  late GoogleMapController _mapController;
   Set<Marker> _markers = Set<Marker>();
 
-  Map<String, dynamic> list;
+  late Map<String, dynamic> list;
   @override
   Widget build(BuildContext context) {
     final providerObject = Provider.of<InfoWindowModel>(context, listen: false);
@@ -50,7 +50,7 @@ class _CustomInfoWindowState extends State<CustomInfoWindow> {
         child: Consumer(
           builder: (context, model, child) => Stack(
             children: [
-              child,
+              child!,
               Positioned(
                 child: Visibility(
                   visible: providerObject.showInfoWindow,

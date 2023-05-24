@@ -11,10 +11,10 @@ import 'package:get/get.dart';
 
 class ProductsGrid extends StatefulWidget {
   // final CategoriesController _categoriesController = Get.find();
-  final List<CategoryItem> categories;
-  final List<Coffee> coffees;
+  final List<CategoryItem>? categories;
+  final List<Coffee>? coffees;
   final bool isShimmering;
-  ProductsGrid({this.isShimmering, this.categories, this.coffees});
+  ProductsGrid({required this.isShimmering, this.categories, this.coffees});
 
   @override
   _ProductsGridState createState() => _ProductsGridState();
@@ -58,8 +58,8 @@ class _ProductsGridState extends State<ProductsGrid> {
             ),
             child: widget.isShimmering
                 ? Shimmer.fromColors(
-                    baseColor: Colors.grey[300],
-                    highlightColor: Colors.grey[100],
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
                     enabled: widget.isShimmering,
                     child: Container(
                       width: 100,
@@ -86,8 +86,8 @@ class _ProductsGridState extends State<ProductsGrid> {
           itemCount: widget.isShimmering
               ? 8
               : widget.categories != null
-                  ? widget.categories.length
-                  : widget.coffees.length,
+                  ? widget.categories!.length
+                  : widget.coffees!.length,
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
@@ -95,8 +95,8 @@ class _ProductsGridState extends State<ProductsGrid> {
           // controller: _scrollController,
           itemBuilder: (context, index) => widget.isShimmering
               ? Shimmer.fromColors(
-                  baseColor: Colors.grey[300],
-                  highlightColor: Colors.grey[100],
+                  baseColor: Colors.grey[300]!,
+                  highlightColor: Colors.grey[100]!,
                   enabled: widget.isShimmering,
                   child: GridItem(
                     isEffect: true,
@@ -105,11 +105,11 @@ class _ProductsGridState extends State<ProductsGrid> {
                 )
               : widget.categories != null
                   ? GridItem(
-                      mainCategory: widget.categories[index],
+                      mainCategory: widget.categories![index],
                       index: index,
                     )
                   : CoffeeGridItem(
-                      coffee: widget.coffees[index],
+                      coffee: widget.coffees![index],
                       index: index,
                       isEffect: widget.isShimmering,
                     ),

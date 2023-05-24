@@ -7,8 +7,12 @@ class TransitionAppBar extends StatelessWidget {
   final double extent;
   final Widget leading;
 
-  TransitionAppBar({this.avatar, this.leading, this.extent = 100, Key key})
-      : super(key: key);
+  TransitionAppBar({
+    required this.avatar,
+    required this.leading,
+    this.extent = 100,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,8 @@ class _TransitionAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double extent;
   final Widget leading;
 
-  _TransitionAppBarDelegate({this.avatar, this.leading, this.extent = 100})
+  _TransitionAppBarDelegate(
+      {required this.avatar, required this.leading, this.extent = 100})
       : assert(avatar != null),
         assert(extent == null || extent >= 100);
   // assert(title != null);

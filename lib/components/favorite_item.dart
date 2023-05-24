@@ -11,8 +11,8 @@ import '../pages/product_detail.dart';
 import '../models/menu_item.dart' as MenuItemModel;
 
 class FavoriteItem extends StatefulWidget {
-  final MenuItemModel.MenuItem menuItem;
-  FavoriteItem({this.menuItem, Key key}) : super(key: key);
+  final MenuItemModel.MenuItem? menuItem;
+  FavoriteItem({this.menuItem, super.key});
 
   @override
   _FavoriteItemState createState() => _FavoriteItemState();
@@ -36,8 +36,8 @@ class _FavoriteItemState extends State<FavoriteItem> {
       },
       child: widget.menuItem == null
           ? Shimmer.fromColors(
-              baseColor: Colors.grey[300],
-              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
               enabled: widget.menuItem == null,
               child: buildItem(),
             )
@@ -47,7 +47,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
 
   buildItem() {
     final String locale =
-        Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
+        Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
     return AnimatedOpacity(
       duration: Duration(
         milliseconds: 500,
@@ -75,7 +75,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
                           ),
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            widget.menuItem.imageUrl,
+                            widget.menuItem!.imageUrl,
                           ),
                           width: double.infinity,
                         ),
@@ -91,8 +91,8 @@ class _FavoriteItemState extends State<FavoriteItem> {
                               ),
                               width: SizeConfig.widthMultiplier * 50,
                               child: Text(
-                                widget.menuItem.name[locale] ??
-                                    widget.menuItem.name['tk'],
+                                widget.menuItem!.name[locale] ??
+                                    widget.menuItem!.name['tk'],
                                 style: TextStyles.body,
                               ),
                             ),
@@ -108,7 +108,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
                                 ),
                               ),
                               child: Text(
-                                '${widget.menuItem.price} TMT',
+                                '${widget.menuItem!.price} TMT',
                                 style: TextStyles.body.copyWith(
                                   color: MyColors.white,
                                 ),
@@ -138,17 +138,17 @@ class _FavoriteItemState extends State<FavoriteItem> {
                           ),
                         ).then(
                           (value) {
-                            widget.menuItem.isFavorite
+                            widget.menuItem!.isFavorite
                                 ? _favoritesController
-                                    .deleteFavorite(widget.menuItem.id)
+                                    .deleteFavorite(widget.menuItem!.id)
                                 : _favoritesController
-                                    .addFavorite(widget.menuItem);
+                                    .addFavorite(widget.menuItem!);
                             // print('fucking');
                           },
                         );
                       },
                       icon: Icon(
-                        widget.menuItem.isFavorite
+                        widget.menuItem!.isFavorite
                             ? Icons.favorite
                             : Icons.favorite_border,
                         color: MyColors.white,

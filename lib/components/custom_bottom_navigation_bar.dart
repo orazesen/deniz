@@ -11,9 +11,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   final Function onTap;
 
   CustomBottomNavigationBar(
-      {@required this.items,
-      @required this.currentIndex,
-      @required this.onTap});
+      {required this.items, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -332,7 +330,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   }
 
   List<Widget> navigationItems(List<CustomBottomNavigationItem> items) {
-    List<Widget> widgets = List<Widget>();
+    List<Widget> widgets = [];
     items.forEach(
       (element) {
         widgets.add(

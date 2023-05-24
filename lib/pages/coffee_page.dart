@@ -29,14 +29,14 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
   bool hasError = false;
 
   final _coffeeController = Get.find<CoffeeMenusController>();
-  GoogleMapController _mapController;
+  late GoogleMapController _mapController;
 
-  ScrollController _scrollController;
+  late ScrollController _scrollController;
 
-  List<Coffee> coffees = List<Coffee>();
+  List<Coffee> coffees = [];
   bool _loading = true;
   Set<Marker> markers = {};
-  String locale;
+  String? locale;
   // Uint8List markerIcond;
   // BitmapDescriptor icon;
 
@@ -91,9 +91,10 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
           });
           getCoffees();
         },
-        child: _coffeeController.coffees.length > 0
+        child: _coffeeController.coffees != null &&
+                _coffeeController.coffees!.isNotEmpty
             ? buildColumn(
-                coffee: _coffeeController.coffees,
+                coffee: _coffeeController.coffees!,
               )
             : _loading
                 ? buildColumn(
@@ -118,7 +119,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
     );
   }
 
-  buildColumn({List<Coffee> coffee, bool isShimmering = false}) {
+  buildColumn({List<Coffee>? coffee, bool isShimmering = false}) {
     return ScrollConfiguration(
       behavior: MyBehavior(),
       child: SingleChildScrollView(
@@ -134,8 +135,8 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                 borderRadius: BorderRadius.circular(SizeConfig.borderRadius),
                 child: isShimmering
                     ? Shimmer.fromColors(
-                        baseColor: Colors.grey[300],
-                        highlightColor: Colors.grey[100],
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
                         enabled: isShimmering,
                         child: Container(
                           decoration: BoxDecoration(
@@ -151,7 +152,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                           GoogleMap(
                             key: PageStorageKey('Google Map Key'),
                             initialCameraPosition: CameraPosition(
-                              target: _coffeeController.addresses[0].location,
+                              target: _coffeeController.addresses![0].location,
                               zoom: 13,
                             ),
                             markers: markers,
@@ -206,7 +207,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
             ),
             ProductsGrid(
               isShimmering: isShimmering,
-              coffees: coffee,
+              coffees: coffee!,
             ),
             isLoading && !isShimmering
                 ? Container(
@@ -305,10 +306,10 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                           SizedBox(
                             height: SizeConfig.heightMultiplier * 2,
                           ),
-                          _coffeeController.addresses.length <= 0
+                          _coffeeController.addresses!.length <= 0
                               ? Shimmer.fromColors(
-                                  baseColor: Colors.grey[300],
-                                  highlightColor: Colors.grey[100],
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
                                   enabled: true,
                                   child: Column(
                                     children: [
@@ -405,10 +406,10 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                                   ),
                                 )
                               : Container(),
-                          _coffeeController.addresses.length <= 0
+                          _coffeeController.addresses!.length <= 0
                               ? Shimmer.fromColors(
-                                  baseColor: Colors.grey[300],
-                                  highlightColor: Colors.grey[100],
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
                                   enabled: true,
                                   child: Column(
                                     children: [
@@ -505,7 +506,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                                   ),
                                 )
                               : Container(),
-                          ..._coffeeController.addresses.map(
+                          ..._coffeeController.addresses!.map(
                             (element) {
                               return GestureDetector(
                                 onTap: () {
@@ -550,7 +551,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
                                             Text(
                                               'station'.tr +
                                                   ' ' +
-                                                  (_coffeeController.addresses
+                                                  (_coffeeController.addresses!
                                                               .indexOf(
                                                                   element) +
                                                           1)
@@ -631,8 +632,8 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
       await _coffeeController.setInitials();
       if (Get.locale != null)
         locale =
-            Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
-      _coffeeController.addresses.forEach((element) {
+            Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
+      _coffeeController.addresses!.forEach((element) {
         String phones = '';
         element.phones.forEach((e) {
           phones += e + ',';
@@ -641,7 +642,7 @@ class _CoffeePageState extends State<CoffeePage> with TickerProviderStateMixin {
           Marker(
             markerId: MarkerId(element.address[locale]),
             // icon: icon,
-            icon: BitmapDescriptor.fromBytes(_coffeeController.markerIcond),
+            icon: BitmapDescriptor.fromBytes(_coffeeController.markerIcond!),
             // icon: BitmapDescriptor.defaultMarker,
             infoWindow: InfoWindow(
                 title: element.address[locale], snippet: phones, onTap: () {}),

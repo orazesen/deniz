@@ -15,7 +15,7 @@ import './controllers/main_page_controller.dart';
 import './controllers/favorites_controller.dart';
 import 'pages/settings_page.dart';
 
-class HomePage extends StatefulWidget with PreferredSizeWidget {
+class HomePage extends StatefulWidget implements PreferredSizeWidget {
   static String routeName = '/';
   final Size preferredSize = AppBar().preferredSize;
   @override
@@ -23,7 +23,7 @@ class HomePage extends StatefulWidget with PreferredSizeWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  MainPageController _mainPageController;
+  late MainPageController _mainPageController;
   final BannersController _bannersController = Get.put(BannersController());
   final FavoritesController _favoritesController =
       Get.put(FavoritesController());
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
         );
     return WillPopScope(
       onWillPop: () async {
-        _willPop(context);
+        return _willPop(context);
       },
       child: Scaffold(
         body: ScrollConfiguration(
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                 //     },
                 //     children: [
                 index == 0
-                    ? GetX<MainPageController>(builder: (s) => s.mainPage.value)
+                    ? GetX<MainPageController>(builder: (s) => s.mainPage)
                     : pages[index],
                 // CoffeePage(),
                 // BasketPage(),

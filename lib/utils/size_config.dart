@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class SizeConfig {
-  static double _screenWidth;
-  static double _screenHeight;
-  static double _blockWidth = 0;
-  static double _blockHeight = 0;
+  static late double _screenWidth;
+  static late double _screenHeight;
+  static late double _blockWidth = 0;
+  static late double _blockHeight = 0;
 
-  static double textMultiplier;
-  static double imageSizeMultiplier;
-  static double heightMultiplier;
-  static double widthMultiplier;
-  static bool isMobilePortrait = false;
-  static double borderRadius;
+  static late double textMultiplier;
+  static late double imageSizeMultiplier;
+  static late double heightMultiplier;
+  static late double widthMultiplier;
+  static late bool isMobilePortrait = false;
+  static late double borderRadius;
 
   void init(BoxConstraints constraints) {
     _screenWidth = constraints.maxWidth;

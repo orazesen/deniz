@@ -7,11 +7,11 @@ class Coffee {
   final String thumpUrl;
 
   Coffee({
-    this.id,
-    this.name,
-    this.ingredients,
-    this.price,
-    this.imgUrl,
-    this.thumpUrl,
+    required this.id,
+    required this.name,
+    required this.ingredients,
+    required this.price,
+    required this.imgUrl,
+    required this.thumpUrl,
   });
 }

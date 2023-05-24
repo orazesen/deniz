@@ -5,7 +5,7 @@ import 'my_theme.dart';
 import 'my_colors.dart';
 
 class TextStyles {
-  MyTheme theme;
+  late MyTheme theme;
   TextStyles(MyTheme theme) {
     this.theme = theme;
   }

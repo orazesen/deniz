@@ -7,14 +7,14 @@ import 'dart:io';
 class VideoPlayerPage extends StatefulWidget {
   final String url;
   VideoPlayerPage({
-    this.url,
+    required this.url,
   });
   @override
   _VideoPlayerPageState createState() => _VideoPlayerPageState();
 }
 
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
-  VideoPlayerController _controller;
+  late VideoPlayerController _controller;
   var _init;
 
   @override
@@ -48,8 +48,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SizedBox.expand(
             child: Shimmer.fromColors(
-              baseColor: Colors.grey[300],
-              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
               enabled: true,
               child: Container(
                 decoration: BoxDecoration(
@@ -132,7 +132,7 @@ class _PlayerVideoAndPopPage extends StatefulWidget {
 }
 
 class _PlayerVideoAndPopPageState extends State<_PlayerVideoAndPopPage> {
-  VideoPlayerController _videoPlayerController;
+  late VideoPlayerController _videoPlayerController;
   bool startedPlaying = false;
 
   @override

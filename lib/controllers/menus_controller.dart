@@ -4,9 +4,9 @@ import '../services/api.dart';
 import './favorites_controller.dart';
 
 class MenusController extends GetxController {
-  RxList<MenuItem> _menus = List<MenuItem>().obs;
-  RxList<DifferentMenu> differentMenus = List<DifferentMenu>().obs;
-  FavoritesController _favoritesController;
+  RxList<MenuItem> _menus = RxList();
+  RxList<DifferentMenu> differentMenus = RxList();
+  late FavoritesController _favoritesController;
   int currentPage = 0;
   int lastPage = 0;
 
@@ -16,7 +16,7 @@ class MenusController extends GetxController {
 
   //Do not set on your own
   set menus(List<MenuItem> menu) {
-    _menus = menu;
+    _menus.value = menu;
   }
 
   checkCurrentMenus(int id) {
@@ -31,8 +31,8 @@ class MenusController extends GetxController {
 
       dm.items.forEach((e) => print(e.name['tk']));
       menus = dm.items;
-      currentPage = dm.currentPage;
-      lastPage = dm.lastPage;
+      currentPage = dm.currentPage!;
+      lastPage = dm.lastPage!;
     }
   }
 
@@ -44,8 +44,8 @@ class MenusController extends GetxController {
     print('get dishes by id');
     print(categoryId);
     _favoritesController = Get.find();
-    final List<MenuItem> m = List<MenuItem>();
-    menus = List<MenuItem>().obs;
+    final List<MenuItem> m = [];
+    menus = RxList();
     try {
       final data = await Api.getMenus(categoryId);
 
@@ -117,11 +117,11 @@ class MenusController extends GetxController {
 class DifferentMenu {
   final List<MenuItem> items;
   final int id;
-  final int currentPage;
-  final int lastPage;
+  final int? currentPage;
+  final int? lastPage;
   const DifferentMenu({
-    this.items,
-    this.id,
+    required this.items,
+    required this.id,
     this.currentPage,
     this.lastPage,
   });

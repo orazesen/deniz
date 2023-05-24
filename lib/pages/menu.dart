@@ -33,7 +33,7 @@ class Menu extends StatelessWidget {
     //     );
     _menusController.checkCurrentMenus(id);
     final String locale =
-        Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
+        Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
     return Scaffold(
       appBar: AppBar(
         // brightness: Brightness.dark,

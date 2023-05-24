@@ -9,11 +9,11 @@ import 'package:deniz/services/api.dart';
 import 'package:deniz/utils/size_config.dart';
 
 class CoffeeMenusController extends GetxController {
-  RxList<Coffee> _coffees;
-  RxList<Address> _addresses;
+  RxList<Coffee>? _coffees;
+  RxList<Address>? _addresses;
   int currentPage = 0;
   int lastPage = -1;
-  Uint8List markerIcond;
+  Uint8List? markerIcond;
 
   CoffeeMenusController() {
     getIcon();
@@ -28,37 +28,37 @@ class CoffeeMenusController extends GetxController {
     // ) as BitmapDescriptor;
   }
 
-  List<Coffee> get coffees {
+  List<Coffee>? get coffees {
     if (_coffees == null) {
-      _coffees = List<Coffee>().obs;
+      _coffees = [] as RxList<Coffee>?;
     }
     return _coffees;
   }
 
-  set coffees(List<Coffee> cofs) {
-    _coffees = cofs;
+  set coffees(List<Coffee>? cofs) {
+    _coffees = RxList(cofs ?? []);
   }
 
-  List<Address> get addresses {
+  List<Address>? get addresses {
     if (_addresses == null) {
-      _addresses = List<Address>().obs;
+      _addresses = [] as RxList<Address>?;
     }
     return _addresses;
   }
 
-  set addresses(List<Address> adds) {
-    _addresses = adds;
+  set addresses(List<Address>? adds) {
+    _addresses = RxList(adds ?? []);
   }
 
   Future<List<Coffee>> setInitials() async {
-    final List<Coffee> temp = List<Coffee>();
-    final RxList<Address> tempAddresses = List<Address>().obs;
+    final List<Coffee> temp = [];
+    final RxList<Address> tempAddresses = RxList();
     // print('current page: $currentPage');
     // print('last page page: $lastPage');
     try {
       if (lastPage != -1) {
         if (currentPage == lastPage) {
-          return _coffees;
+          return _coffees ?? [];
         }
       }
 
@@ -92,7 +92,7 @@ class CoffeeMenusController extends GetxController {
       // if (_addresses == null || _addresses.length <= 0) {
       data[1].data.forEach(
         (element) {
-          List<String> phones = List<String>();
+          List<String> phones = [];
 
           element['phones'].forEach((element) {
             phones.add(element);
@@ -122,19 +122,19 @@ class CoffeeMenusController extends GetxController {
       );
       // }
       if (_coffees == null) {
-        _coffees = List<Coffee>().obs;
+        _coffees = RxList();
       }
       if (_addresses == null) {
-        _addresses = List<Address>().obs;
+        _addresses = RxList();
       }
       _addresses = tempAddresses;
       currentPage++;
       // print('current page: $currentPage');
       // print('done!');
 
-      _coffees.addAll(temp);
+      _coffees?.addAll(temp);
 
-      return _coffees;
+      return _coffees ?? [];
     } catch (e) {
       print('error');
       throw (e);

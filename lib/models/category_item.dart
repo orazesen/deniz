@@ -5,9 +5,9 @@ class CategoryItem {
   final String thumbUrl;
 
   const CategoryItem({
-    this.id,
-    this.name,
-    this.imageUrl,
-    this.thumbUrl,
+    required this.id,
+    required this.name,
+    required this.imageUrl,
+    required this.thumbUrl,
   });
 }

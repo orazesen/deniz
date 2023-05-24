@@ -31,11 +31,11 @@ class OrderDetailPage extends StatefulWidget {
 
 class _OrderDetailPageState extends State<OrderDetailPage>
     with TickerProviderStateMixin {
-  SharedPreferences pref;
+  late SharedPreferences pref;
   TextEditingController phoneController = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController addController = TextEditingController();
-  OrdersController controller;
+  late OrdersController controller;
   bool inProgress = false;
   bool hasError = false;
   final _formKey = GlobalKey<FormState>();
@@ -53,7 +53,7 @@ class _OrderDetailPageState extends State<OrderDetailPage>
   Widget build(BuildContext context) {
     if (isFirstCall) {
       isFirstCall = false;
-      Map args = ModalRoute.of(context).settings.arguments as Map;
+      Map args = ModalRoute.of(context)!.settings.arguments as Map;
 
       controller = args['controller'];
       pref = args['pref'];
@@ -405,7 +405,7 @@ class _OrderDetailPageState extends State<OrderDetailPage>
     }
 
     if (controller.total < 50) {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: MyColors.darkGreen,
           content: Text(
@@ -458,7 +458,7 @@ class _OrderDetailPageState extends State<OrderDetailPage>
       setState(() {
         inProgress = false;
       });
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: MyColors.darkGreen,
           content: Text(

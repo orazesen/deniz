@@ -5,5 +5,6 @@ class Address {
   List<String> phones;
   LatLng location;
 
-  Address({this.address, this.phones, this.location});
+  Address(
+      {required this.address, required this.phones, required this.location});
 }

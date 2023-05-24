@@ -31,8 +31,8 @@ class _CoffeeDetailState extends State<CoffeeDetail> {
   @override
   Widget build(BuildContext context) {
     final String locale =
-        Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
-    final Coffee coffee = ModalRoute.of(context).settings.arguments as Coffee;
+        Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
+    final Coffee coffee = ModalRoute.of(context)!.settings.arguments as Coffee;
     return Scaffold(
       body: Stack(
         children: [
@@ -111,7 +111,7 @@ class _CoffeeDetailState extends State<CoffeeDetail> {
                               width: SizeConfig.widthMultiplier * 45,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
-                                  TextStyles.title.fontSize,
+                                  TextStyles.title.fontSize!,
                                 ),
                                 color: MyColors.background,
                               ),
@@ -257,7 +257,7 @@ class _CoffeeDetailState extends State<CoffeeDetail> {
                     bottom: SizeConfig.widthMultiplier * 6,
                     right: SizeConfig.widthMultiplier * 4,
                   ),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () async {
                       launch('tel:+99365711811');
                       // Get.back();

@@ -4,8 +4,8 @@ class Banner {
   final String fileType;
 
   Banner({
-    this.id,
-    this.fileUrl,
-    this.fileType,
+    required this.id,
+    required this.fileUrl,
+    required this.fileType,
   });
 }

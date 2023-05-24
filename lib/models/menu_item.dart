@@ -9,12 +9,12 @@ class MenuItem {
   bool isFavorite;
 
   MenuItem({
-    this.id,
-    this.name,
-    this.imageUrl,
-    this.thumbUrl,
-    this.ingredients,
-    this.price,
+    required this.id,
+    required this.name,
+    required this.imageUrl,
+    required this.thumbUrl,
+    required this.ingredients,
+    required this.price,
     this.categoryId = -1,
     this.isFavorite = false,
   });
@@ -36,7 +36,7 @@ class MenuItem {
     };
   }
 
-  MenuItem fromMap(Map<String, dynamic> map) {
+  factory MenuItem.fromMap(Map<String, dynamic> map) {
     return MenuItem(
       id: map['id'],
       name: {

@@ -90,14 +90,14 @@ class FavoritesPage extends StatelessWidget {
     );
   }
 
-  ListView buildListView({List<MenuItem> items, bool isShimmering = false}) {
+  ListView buildListView({List<MenuItem>? items, bool isShimmering = false}) {
     return ListView.separated(
       separatorBuilder: (c, index) {
         return SizedBox(
           height: SizeConfig.widthMultiplier * 4,
         );
       },
-      itemCount: isShimmering ? 8 : items.length,
+      itemCount: isShimmering ? 8 : items?.length ?? 0,
       itemBuilder: (ctx, index) {
         return index == 0
             ? Column(
@@ -142,7 +142,7 @@ class FavoritesPage extends StatelessWidget {
                       ? FavoriteItem()
                       : FavoriteItem(
                           key: UniqueKey(),
-                          menuItem: items[index],
+                          menuItem: items![index],
                         ),
                 ],
               )
@@ -150,7 +150,7 @@ class FavoritesPage extends StatelessWidget {
                 ? FavoriteItem()
                 : FavoriteItem(
                     key: UniqueKey(),
-                    menuItem: items[index],
+                    menuItem: items![index],
                   );
       },
       padding: EdgeInsets.only(

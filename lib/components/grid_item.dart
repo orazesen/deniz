@@ -10,22 +10,23 @@ import '../models/category_item.dart';
 import '../pages/menu.dart';
 
 class GridItem extends StatelessWidget {
-  final CategoryItem mainCategory;
+  final CategoryItem? mainCategory;
   final bool isEffect;
   final int index;
 
-  GridItem({this.mainCategory, this.isEffect = false, this.index});
+  GridItem({this.mainCategory, this.isEffect = false, required this.index});
   final MainPageController _mainPageController = Get.find();
-  String locale;
+  late String locale;
 
   @override
   Widget build(BuildContext context) {
     if (Get.locale != null)
-      locale = Get.locale.languageCode == 'tr' ? 'tk' : Get.locale.languageCode;
+      locale =
+          Get.locale!.languageCode == 'tr' ? 'tk' : Get.locale!.languageCode;
     return GestureDetector(
       onTap: () {
         if (isEffect) return;
-        _mainPageController.mainPage = Menu(id: mainCategory.id);
+        _mainPageController.mainPage = Menu(id: mainCategory!.id);
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(
@@ -63,7 +64,7 @@ class GridItem extends StatelessWidget {
                       placeholder: AssetImage(Constants.placeholderMini),
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        mainCategory.imageUrl,
+                        mainCategory!.imageUrl,
                       ),
                       width: double.infinity,
                       height: double.infinity,
@@ -82,7 +83,8 @@ class GridItem extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         height: SizeConfig.heightMultiplier * 4,
                         child: Text(
-                          mainCategory.name[locale] ?? mainCategory.name['tk'],
+                          mainCategory!.name[locale] ??
+                              mainCategory!.name['tk'],
                           textAlign: TextAlign.left,
                           style: TextStyles.menu.copyWith(
                             fontSize: SizeConfig.textMultiplier * 1.6,
